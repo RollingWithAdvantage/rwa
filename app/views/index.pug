@@ -3,5 +3,42 @@ html(lang="en")
   head
     title Rolling With Advantage
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', )
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', )
+    link(rel='stylesheet', href='style.css', )
   body
     include ./includes/nav.pug
+
+    section
+      div.container
+        div.row
+          div.col-md-3.col-md-offset-2
+            h1 Dungeon Masters
+            p Host campaigns for troubled youths at facilities.
+            a.btn.btn-primary Signup
+          div.col-md-3.col-md-offset-2
+            h1 Facility Managers
+            p Find DMs to occupy the trouble youths.
+            a.btn.btn-primary Signup
+    section
+      .container
+        .row
+          .col-sm-3.col-md-3
+            .text-center
+              i.fa.fa-pencil.fa-3x
+              h3 Dungeon Masters
+              p Looking to host a game? Find a Game Mster
+          .col-sm-3.col-md-3
+            .text-center
+              i.fa.fa-search.fa-3x
+              h3 Find a Facility
+              p Find DMs to occupy the trouble youths.
+          .col-sm-3.col-md-3
+            .text-center
+              i.fa.fa-code.fa-3x
+              h3 Do you play D&D?
+              p Do you play D&D? We want to hear from you.
+          .col-sm-3.col-md-3
+            .text-center
+              i.fa.fa-building.fa-3x
+              h3 Do you want to host a game?
+              p Do you have access to a location and willing players? Let's play some tabletops the old fashion way
