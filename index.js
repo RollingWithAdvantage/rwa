@@ -1,5 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser')
+var User = require('./app/models/user')
+var locationService = require('./app/services/location/locationService')
 
 /* EXPRESS CONFIG */
 var app = express()
@@ -13,15 +15,6 @@ app.use(express.static('public'));
 /* MODEL */
 var mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_CONNECT_STRING)
-
-var User = mongoose.model('User', new mongoose.Schema({
-  un:  String,
-  em:  String,
-  pw:  String,
-  fn:  String,
-  ln:  String,
-  zip: Number
-}))
 
 var Facility = mongoose.model('Facility', new mongoose.Schema({
   name: String,
@@ -42,7 +35,11 @@ app.post('/users', (req, res) => {
     pw:  req.body.pw,
     fn:  req.body.fn,
     ln:  req.body.ln,
-    zip: req.body.zip
+    zip: req.body.zip,
+    geolocation: {
+      type: "Point",
+      coordinates: locationService.getCoordinates(req.body.zip)
+	}
   })
   user.save((err) => {
     if (err) console.log(err)
