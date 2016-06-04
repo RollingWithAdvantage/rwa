@@ -25,6 +25,7 @@ var Facility = mongoose.model('Facility', new mongoose.Schema({
 app.get('/', (req, res) => {
   res.render('index')
 })
+app.use(express.static('public'));
 /*
 app.get('/about-us', (req, res) => {
   res.render('about-us')
