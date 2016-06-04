@@ -1,0 +1,40 @@
+doctype html
+html(lang="en")
+  head
+    title Rolling With Advantage
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', )
+  body
+    nav.navbar.navbar-default
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') Rolling With Advantage
+
+    .container
+      form.form-horizontal(action='/users', method='post')
+        .form-group
+          label.col-md-2.control-label First Name
+          .col-md-3
+            input.form-control(type='text', name='fn')
+        .form-group
+          label.col-md-2.control-label Last Name
+          .col-md-3
+            input.form-control(type='text', name='ln')
+        .form-group
+          label.col-md-2.control-label Zip
+          .col-md-3
+            input.form-control(type='number', name='zip')
+        .form-group
+          label.col-md-2.control-label Email
+          .col-md-3
+            input.form-control(type='email', name='email')
+        .form-group
+          label.col-md-2.control-label Password
+          .col-md-3
+            input.form-control(type='password', name='pw')
+        .form-group
+          label.col-md-2.control-label Confirm Password
+          .col-md-3
+            input.form-control(type='password', name='pw_confirm')
+        .form-group
+          .col-md-3.col-md-offset-2
+            button.btn.btn-default(type='submit') Sign up
