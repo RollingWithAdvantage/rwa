@@ -7,6 +7,8 @@ var app = express()
 app.set('views', './app/views')
 app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({ extended: true }))
+// create public media access
+app.use(express.static('public'));
 
 /* MODEL */
 var mongoose = require('mongoose')
