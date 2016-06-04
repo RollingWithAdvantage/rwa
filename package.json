@@ -9,7 +9,9 @@
   "dependencies": {
     "express": "~4.13.x",
     "mongoose": "~4.4.x",
-    "pug": "^2.0.0-beta2"
+    "mongoose-geojson-schema": "^2.1.1",
+    "pug": "^2.0.0-beta2",
+    "zipcodes": "^2.1.0"
   },
   "scripts": {
     "start": "nodemon index.js"
