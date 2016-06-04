@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    title Rolling With Advantage
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', )
+  body
+    include ./includes/nav.pug
+
+    .container
+      form.form-horizontal(action='/login', method='post')
+        .form-group
+          label.col-md-2.control-label Username
+          .col-md-3
+            input.form-control(type='text', name='un')
+        .form-group
+          label.col-md-2.control-label Password
+          .col-md-3
+            input.form-control(type='password', name='pw')
+        .form-group
+          .col-md-3.col-md-offset-2
+            button.btn.btn-default(type='submit') Log in
