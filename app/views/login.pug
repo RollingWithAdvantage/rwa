@@ -1,11 +1,8 @@
-doctype html
-html(lang="en")
-  head
-    title Rolling With Advantage
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', )
-  body
-    include ./includes/nav.pug
+extends ./layout.pug
 
+block title
+  title RWA - Login
+block content
     .container
       form.form-horizontal(action='/login', method='post')
         .form-group
