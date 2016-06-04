@@ -17,4 +17,4 @@ var User = mongoose.model('User', new mongoose.Schema({
 	}
 */
 
-module.exports = new User();
+module.exports = User;
