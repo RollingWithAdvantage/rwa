@@ -1,7 +1,20 @@
-body {
-	background: #111133;
+div.banner {
+	position: relative;
+	background-image: url('rwa-banner.jpg');
+	background-size: 100%;
+	height: 300px;
+	background-position: right 0px top 20%;
+	color: #ffffff;
+	text-align: center;
+	text-shadow: 1px 1px 2px #111111;
+}
+
+div.banner h1 {
+	font-size: 72px;
+	padding-top: 5%;
 }
 
 .container {
 	background: #eeeeee;
 }
+
