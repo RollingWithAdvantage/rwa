@@ -35,6 +35,15 @@ app.get('/', (req, res) => {
 app.get('/sign-up', (req, res) => {
   res.render('sign-up')
 })
+app.get('/user/:un', (req, res) => {
+  User.findOne({ un: req.params.un }, (err, user) => {
+    if (!user) {
+      res.send(404)
+    } else {
+      res.render('user', user)
+    }
+  })
+})
 app.post('/users', (req, res) => {
   var user = new User({
     un:  req.body.un,
