@@ -1,36 +1,62 @@
 var express = require('express')
+var bodyParser = require('body-parser')
+
+/* EXPRESS CONFIG */
 var app = express()
 
 app.set('views', './app/views')
 app.set('view engine', 'pug')
+app.use(bodyParser.urlencoded({ extended: true }))
 
 /* MODEL */
 var mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_CONNECT_STRING)
 
 var User = mongoose.model('User', new mongoose.Schema({
-  fn: String,
-  ln: String,
-  pw: String,
-  em: String,
+  un:  String,
+  em:  String,
+  pw:  String,
+  fn:  String,
+  ln:  String,
   zip: Number
 }))
 
 var Facility = mongoose.model('Facility', new mongoose.Schema({
   name: String,
-  zip: Number
+  zip:  Number
 }))
 
 /* ROUTES */
 app.get('/', (req, res) => {
   res.render('index')
 })
+app.get('/sign-up', (req, res) => {
+  res.render('sign-up')
+})
+app.post('/users', (req, res) => {
+  var user = new User({
+    un:  req.body.un,
+    em:  req.body.em,
+    pw:  req.body.pw,
+    fn:  req.body.fn,
+    ln:  req.body.ln,
+    zip: req.body.zip
+  })
+  user.save((err) => {
+    if (err) console.log(err)
+    else console.log('New user created')
+  })
+  res.send(req.body)
+})
+app.get('/login', (req, res) => {
+  res.render('login')
+})
+app.post('/login', (req, res) => {
+  User.findOne({ un: req.body.un }, (err, user) => {})
+})
 /*
 app.get('/about-us', (req, res) => {
   res.render('about-us')
-})
-app.get('/sign-up', (req, res) => {
-  res.render('sign-up')
 })
 */
 
