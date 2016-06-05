@@ -8,6 +8,15 @@ LocationService.prototype.getCoordinates = function(zipcode) {
     return [geodata.longitude, geodata.latitude];
 }
 
+LocationService.prototype.getPoint = function(zipcode) {
+    var geodata = zipcodes.lookup(zipcode);
+
+    return {
+        type: 'Point',
+        coordinates: [geodata.longitude, geodata.latitude]
+    };
+}
+
 LocationService.prototype.zipRadius = function(zipcode, radius) {
     return zipcodes.radius(zipcode, radius);
 }

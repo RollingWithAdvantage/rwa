@@ -26,7 +26,7 @@ router.route('/users').post(users.create)
 router.route('/login').get(users.loginForm)
 router.route('/login').post(users.login)
 router.route('/bye').get(users.logout)
-router.route('/facility/:facility').get(facilities.view)
+router.route('/facility/:id').get(facilities.view)
 router.route('/add-facility').get(facilities.new)
 router.route('/facilities').post(facilities.create)
 
