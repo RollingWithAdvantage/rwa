@@ -1,15 +1,14 @@
 extends ../_layouts/default.pug
 
 block content
-  div.banner
-    h1 Rolling With Advantage
-  section
-    .container
-      .row
-        div#contact-area
-            form(method='post',action='')
-                label(for='name') Name:
-                input(type='text',name='name',id='name')        
-                label(for='email') Email:
-                input(type='text',name='email',id='email')  
-                input(type='submit',name='submit',value='Submit').submit-button
+	div.banner
+		h1 Rolling With Advantage
+	section
+		.container
+			.row
+				div.vertical-spacer
+				h1 Contact
+				p
+					a(href='https://www.facebook.com/RollingWithAdvantage/') Facebook Page
+				p
+					a(href='https://twitter.com/InvisibleThrill') Project Manager's Twitter
