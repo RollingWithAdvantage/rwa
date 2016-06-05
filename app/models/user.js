@@ -1,7 +1,7 @@
 var GeoJSON = require('mongoose-geojson-schema');
 var mongoose = require('mongoose');
-
-var User = mongoose.model('User', new mongoose.Schema({
+var passportLocalMongoose = require('passport-local-mongoose');
+var UserSchema = new mongoose.Schema({
     un: String,
     fn: String,
     ln: String,
@@ -9,7 +9,9 @@ var User = mongoose.model('User', new mongoose.Schema({
     em: String,
     zip: Number,
     geolocation: mongoose.Schema.Types.Point
-}));
+})
+UserSchema.plugin(passportLocalMongoose);
+var User = mongoose.model('User',UserSchema);
 
 /*
 	point: {

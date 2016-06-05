@@ -1,4 +1,7 @@
 var mongoose = require('mongoose')
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require('cookie-parser');
 
 mongoose.connect(process.env.MONGODB_CONNECT_STRING)
 
@@ -24,7 +27,15 @@ router.route('/user/:un').get(users.view)
 router.route('/sign-up').get(users.new)
 router.route('/users').post(users.create)
 router.route('/login').get(users.loginForm)
-router.route('/login').post(users.login)
+router.route('/login').post(function(req,res){console.log("HEY");passport.authenticate('local')(req, res, function () {
+            console.log("THIS SUCKS");
+            req.session.save(function (err) {
+                if (err) {
+                    return next(err);
+                }
+                res.redirect('/');
+            });
+        });}) ;
 router.route('/bye').get(users.logout)
 router.route('/facility/:facility').get(facilities.view)
 router.route('/add-facility').get(facilities.new)
@@ -34,6 +45,24 @@ router.route('/facilities').post(facilities.create)
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(router)
 app.use(express.static('public'));
+app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'the dude abides',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var Account = require('./app/models/user');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(passport.serializeUser(function(user, done) {
+    return user.id;
+}));
+passport.deserializeUser(passport.serializeUser(function(user, done) {
+    return user.id;
+}));
+
 
 app.set('port', (process.env.PORT || 5000))
 app.listen(app.get('port'), () => {
