@@ -5,15 +5,20 @@ exports.view = (req, res) => {
   console.log('test facility view ' + req.params.id )
 
   var facility_id = new ObjectId(req.params.id)
+  
+  console.log('test facility view ' + facility_id)
 
   Facility.findById(facility_id, (err, facility) => {
     if (err) {
       console.log('err ' + err);
 
-      return null;
+      res.render('error')
     }
 
     console.log('found ' + facility);
+
+    // TODO make a real page!
+    res.render('error')
   })
 }
 
