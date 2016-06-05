@@ -1,5 +1,6 @@
 var Facility = require('../models/facility')
 var ObjectId = require('mongoose').Types.ObjectId;
+var locationService = require('../services/location/locationService')
 
 exports.view = (req, res) => {
   console.log('test facility view ' + req.params.id )
@@ -18,7 +19,7 @@ exports.view = (req, res) => {
     console.log('found ' + facility);
 
     // TODO make a real page!
-    res.render('error')
+    res.render('facilities/show', facility)
   })
 }
 
