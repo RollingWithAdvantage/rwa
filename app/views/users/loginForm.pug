@@ -1,18 +1,16 @@
-extends ./layout.pug
+extends ../_layouts/default.pug
 
-block title
-  title RWA - Login
 block content
-    .container
-      form.form-horizontal(action='/login', method='post')
-        .form-group
-          label.col-md-2.control-label Username
-          .col-md-3
-            input.form-control(type='text', name='un')
-        .form-group
-          label.col-md-2.control-label Password
-          .col-md-3
-            input.form-control(type='password', name='pw')
-        .form-group
-          .col-md-3.col-md-offset-2
-            button.btn.btn-default(type='submit') Log in
+  .container
+    form.form-horizontal(action='/login', method='post')
+      .form-group
+        label.col-md-2.control-label Username
+        .col-md-3
+          input.form-control(type='text', name='un')
+      .form-group
+        label.col-md-2.control-label Password
+        .col-md-3
+          input.form-control(type='password', name='pw')
+      .form-group
+        .col-md-3.col-md-offset-2
+          button.btn.btn-default(type='submit') Log in
