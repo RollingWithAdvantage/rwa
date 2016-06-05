@@ -1,3 +1,6 @@
+var User = require('../models/user')
+var locationService = require('../services/location/locationService')
+
 exports.view = (req, res) => {
 }
 exports.new = (req, res) => {
@@ -26,6 +29,16 @@ exports.loginForm = (req, res) => {
   res.render('users/loginForm')
 }
 exports.login = (req, res) => {
-  User.findOne({ un: req.body.un }, (err, user) => {})
+  User.findOne({ un: req.body.un }, (err, user) => {
+    if (err) {
+      console.log('login error ' + err);
+      
+      return null
+    }
+    
+    if (req.body.pw && req.body.pw === user.pw) {
+      console.log('logged in!')
+    }
+  })
 }
 exports.logout = (req, res) => {}

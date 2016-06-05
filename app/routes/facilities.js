@@ -1,3 +1,5 @@
+var Facility = require('../models/facility')
+
 exports.view = (req, res) => {}
 exports.new = (req, res) => {
   res.render('facilities/new')

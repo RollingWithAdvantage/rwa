@@ -10,4 +10,4 @@ var Facility = mongoose.model('Facility', new mongoose.Schema({
   description: String
 }))
 
-module.exports = User;
+module.exports = Facility;

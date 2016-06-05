@@ -1,7 +1,5 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var User = require('./app/models/user')
-var locationService = require('./app/services/location/locationService')
 
 /* EXPRESS CONFIG */
 var app = express()

@@ -2,6 +2,7 @@ var GeoJSON = require('mongoose-geojson-schema');
 var mongoose = require('mongoose');
 
 var User = mongoose.model('User', new mongoose.Schema({
+    un: String,
     fn: String,
     ln: String,
     pw: String,
