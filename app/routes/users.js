@@ -14,10 +14,7 @@ exports.create = (req, res) => {
     fn:  req.body.fn,
     ln:  req.body.ln,
     zip: req.body.zip,
-    geolocation: {
-      type: "Point",
-      coordinates: locationService.getCoordinates(req.body.zip)
-	}
+    geolocation: locationService.getPoint(req.body.zip)
   })
   user.save((err) => {
     if (err) console.log(err)
