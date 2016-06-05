@@ -1,8 +1,12 @@
+.navbar {
+	margin-bottom: -20px;
+}
+
 div.banner {
 	position: relative;
 	background-image: url('rwa-banner.jpg');
 	background-size: 100%;
-	height: 300px;
+	height: 30vw;
 	background-position: right 0px top 20%;
 	color: #ffffff;
 	text-align: center;
@@ -10,11 +14,14 @@ div.banner {
 }
 
 div.banner h1 {
-	font-size: 72px;
+	font-size: 7.2vw;
 	padding-top: 5%;
 }
 
-.container {
-	background: #eeeeee;
+.shade {
+	margin-top: 40px;
 }
 
+.vertical-spacer {
+	height: 4vw;
+}
