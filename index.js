@@ -1,3 +1,8 @@
+var mongoose = require('mongoose')
+var env = require('./env')
+
+mongoose.connect(env.MONGODB_CONNECT_STRING)
+
 var express = require('express')
 var bodyParser = require('body-parser')
 
@@ -21,7 +26,7 @@ router.route('/login').get(users.loginForm)
 router.route('/login').post(users.login)
 router.route('/bye').get(users.logout)
 router.route('/facility/:facility').get(facilities.view)
-router.route('/facility/new').get(facilities.new)
+router.route('/add-facility').get(facilities.new)
 router.route('/facilities').post(facilities.create)
 
 /* SERVER */

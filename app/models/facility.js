@@ -1,5 +1,4 @@
 var mongoose = require('mongoose')
-mongoose.connect(process.env.MONGODB_CONNECT_STRING)
 
 var Facility = mongoose.model('Facility', new mongoose.Schema({
   name: String,
