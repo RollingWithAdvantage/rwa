@@ -1,7 +1,6 @@
 var mongoose = require('mongoose')
-var env = require('./env')
 
-mongoose.connect(env.MONGODB_CONNECT_STRING)
+mongoose.connect(process.env.MONGODB_CONNECT_STRING)
 
 var express = require('express')
 var bodyParser = require('body-parser')
