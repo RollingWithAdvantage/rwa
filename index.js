@@ -18,6 +18,8 @@ var facilities = require('./app/routes/facilities')
 
 var router = express.Router()
 router.route('/').get(home.default)
+router.route('/about').get(home.about)
+router.route('/contact').get(home.contact)
 router.route('/user/:un').get(users.view)
 router.route('/sign-up').get(users.new)
 router.route('/users').post(users.create)

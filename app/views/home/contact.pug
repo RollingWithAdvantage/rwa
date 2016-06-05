@@ -1,0 +1,15 @@
+extends ../_layouts/default.pug
+
+block content
+  div.banner
+    h1 Rolling With Advantage
+  section
+    .container
+      .row
+        div#contact-area
+            form(method='post',action='')
+                label(for='name') Name:
+                input(type='text',name='name',id='name')        
+                label(for='email') Email:
+                input(type='text',name='email',id='email')  
+                input(type='submit',name='submit',value='Submit').submit-button
